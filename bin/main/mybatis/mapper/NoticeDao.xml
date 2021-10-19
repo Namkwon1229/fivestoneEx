@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.INoticeDao"> 
+
+	<select id="list" resultType="com.study.springboot.dto.NoticeDto"> 
+		SELECT * FROM COMPANY_NOTICE ORDER BY NOTICE_IDX DESC
+	</select>
+	
+	<select id="noticeInfo" resultType="com.study.springboot.dto.NoticeDto">
+	   	SELECT * FROM COMPANY_NOTICE WHERE NOTICE_IDX=#{param1}
+    </select>
+   	
+   	<select id="top3List" resultType="com.study.springboot.dto.NoticeDto">
+	   	SELECT * FROM COMPANY_NOTICE WHERE ROWNUM <![CDATA[<]]>= 3 ORDER BY NOTICE_IDX DESC
+    </select>
+    
+   	<select id="titleSearch" resultType="com.study.springboot.dto.NoticeDto">
+	   	SELECT * FROM COMPANY_NOTICE WHERE NOTICE_TITLE LIKE '%'||#{param1}||'%'
+    </select>
+	
+   	<select id="contentSearch" resultType="com.study.springboot.dto.NoticeDto">
+	   	SELECT * FROM COMPANY_NOTICE WHERE NOTICE_CONTENT LIKE '%'||#{param1}||'%'
+    </select>
+
+</mapper>

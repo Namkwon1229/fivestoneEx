@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.IJobDao"> 
+
+	<select id="list" resultType="com.study.springboot.dto.JobDto"> 
+		SELECT * FROM COMPANY_JOB ORDER BY JOB_IDX DESC
+	</select>
+	
+	<select id="jobInfo" resultType="com.study.springboot.dto.JobDto">
+	   	SELECT * FROM COMPANY_JOB WHERE JOB_IDX=#{param1}
+    </select>
+     
+   	<select id="titleSearch" resultType="com.study.springboot.dto.JobDto">
+	   	SELECT * FROM COMPANY_JOB WHERE JOB_TITLE LIKE '%'||#{param1}||'%'
+    </select>
+    
+  	<select id="contentSearch" resultType="com.study.springboot.dto.JobDto">
+	   	SELECT * FROM COMPANY_JOB WHERE JOB_CONTENT LIKE '%'||#{param1}||'%'
+    </select>
+	
+</mapper>

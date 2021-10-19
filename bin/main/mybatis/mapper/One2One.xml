@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.IOne2OneDao"> 
+
+   <insert id="addOne2one">
+      INSERT INTO COMPANY_ONE2ONE(ONE2ONE_IDX, ONE2ONE_NAME, ONE2ONE_PHONE, ONE2ONE_EMAIL, 
+      								ONE2ONE_ADDRESS, ONE2ONE_TITLE, ONE2ONE_CONTENT, ONE2ONE_DATE)
+      		VALUES(COMPANY_ONE2ONE_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, SYSDATE )
+   </insert>
+	
+</mapper>

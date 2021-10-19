@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.IMemberDao"> 
+<!-- 
+	<select id="memberCheck" resultType="com.study.springboot.dto.MemberDto"> 
+		SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_ID=#{param1} AND MEMBER_PW=#{param2}
+	</select>
+	
+	<select id="checkJoinInfo" resultType="com.study.springboot.dto.MemberDto">
+	   	SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_NAME=#{param1} AND MEMBER_EMAIL=#{param2}
+    </select>
+    
+   	<select id="idCheck" resultType="com.study.springboot.dto.MemberDto">
+	   	SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_ID=#{param1}
+    </select>
+    
+  	<select id="idEmailCheck" resultType="com.study.springboot.dto.MemberDto">
+	   	SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_ID=#{param1} AND MEMBER_EMAIL=#{param2}
+    </select>
+-->
+	<select id="memberCheck" resultType="int"> 
+		SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_ID=#{param1} AND MEMBER_PW=#{param2}
+	</select>
+	
+	<select id="checkJoinInfo" resultType="int">
+	   	SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_NAME=#{param1} AND MEMBER_EMAIL=#{param2}
+    </select>
+    
+   	<select id="idCheck" resultType="int">
+	   	SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_ID=#{param1}
+    </select>
+    
+  	<select id="idEmailCheck" resultType="int">
+	   	SELECT COUNT(*) FROM COMPANY_MEMBER WHERE MEMBER_ID=#{param1} AND MEMBER_EMAIL=#{param2}
+    </select>
+
+   <insert id="addMember">
+      INSERT INTO COMPANY_MEMBER(MEMBER_IDX, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_EMAIL, MEMBER_EMAIL_RECEIVE, MEMBER_PW_QUESTION, MEMBER_PW_ANSWER, MEMBER_GENDER, MEMBER_BIRTH_DATE, MEMBER_JOIN_DATE)
+		VALUES(COMPANY_MEMBER_SEQ.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, SYSDATE)
+   </insert>
+
+</mapper>

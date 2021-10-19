@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.INewsDao"> 
+
+	<select id="list" resultType="com.study.springboot.dto.NewsDto"> 
+		SELECT * FROM COMPANY_NEWS ORDER BY NEWS_IDX DESC
+	</select>
+	
+	<select id="newsInfo" resultType="com.study.springboot.dto.NewsDto">
+	   	SELECT * FROM COMPANY_NEWS WHERE NEWS_IDX=#{param1}
+    </select>
+    
+    <select id="titleSearch" resultType="com.study.springboot.dto.NewsDto">
+	   	SELECT * FROM COMPANY_NEWS WHERE NEWS_TITLE LIKE '%'||#{param1}||'%'
+    </select>
+	    
+    <select id="contentSearch" resultType="com.study.springboot.dto.NewsDto">
+	   	SELECT * FROM COMPANY_NEWS WHERE NEWS_CONTENT LIKE '%'||#{param1}||'%'
+    </select>
+</mapper>
